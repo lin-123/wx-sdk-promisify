@@ -1,6 +1,6 @@
 {
   "name": "wx-sdk-promisify",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "weixin jssdk promisify",
   "main": "dist/index.min.js",
   "scripts": {
@@ -8,10 +8,17 @@
     "start": "webpack --watch",
     "build": "NODE_ENV=production webpack"
   },
-  "author": "",
+  "author": "lin-123",
   "license": "ISC",
   "dependencies": {
     "weixin-js-sdk": "^1.2.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lin-123/wx-sdk-promisify"
+  },
+  "bugs": {
+    "url": "https://github.com/lin-123/wx-sdk-promisify/issues"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
