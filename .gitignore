@@ -1,0 +1,6 @@
+*.sh
+*.log
+.idea
+.DS_Store
+dist/*.html
+node_modules

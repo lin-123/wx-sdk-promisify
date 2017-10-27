@@ -1,0 +1,6 @@
+**/.*
+src
+node_modules
+dist/index.html
+deploy.sh
+webpack.config.js
