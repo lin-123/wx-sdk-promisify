@@ -3,4 +3,6 @@
 .idea
 .DS_Store
 dist/*.html
+test
 node_modules
+Makefile

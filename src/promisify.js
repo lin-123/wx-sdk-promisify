@@ -1,11 +1,13 @@
 import wx from 'weixin-js-sdk'
 import { asyncList, syncList} from './apiList'
+import hook from './hook'
 
 const promisify = (obj, method, sync) => {
   const origin = obj[method].bind(obj)
   obj[method] = function({success, fail, ...otherArgs} = {}) {
     return new Promise((resolve, reject) => {
       wx.ready(() => {
+        if(hook[method]) otherArgs = hook[method](...otherArgs);
         if(sync) return resolve(origin({...otherArgs}));
 
         origin({
