@@ -82,9 +82,9 @@ await wx.previewImage({current, urls})
 ```
 
 ## Build Setup
-- develop:  `npm stasrt`
-- build: `npm run build`
-- publish: `npm publish`
+- develop:  `make dev`
+- build: `make build`
+- publish: `make publish`
 
 
 ## 附录

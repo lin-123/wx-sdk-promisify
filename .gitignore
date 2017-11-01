@@ -5,4 +5,3 @@
 dist/*.html
 test
 node_modules
-Makefile
