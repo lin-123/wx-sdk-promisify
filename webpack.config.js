@@ -21,7 +21,9 @@ const devConf = {
   output: {
     filename: 'index.min.js',
     path: path.resolve(__dirname, 'dist'),
-    publicPath: '/'
+    publicPath: '/',
+    libraryTarget: "umd",
+    library: "wx"
   }
 };
 
