@@ -1,10 +1,11 @@
 import wx from 'weixin-js-sdk'
-
-const log = (msg, type='error') => console[type]('wx-sdk-promise: ', msg)
+import {log, getRequest, inWX} from './utils'
 
 // 注册签名
 export default ({appid, signatureUrl, debug = false, jsApiList}) => {
-  if(!(appid || signatureUrl)) return log('invalid params! appid, signatureUrl should have value')
+  if(!(appid || signatureUrl)) return log('invalid params! appid, signatureUrl should have value');
+  // if(!inWX) return log('not in weixin');
+
   getRequest(signatureUrl).then(({data, code}) => {
     if(code != 0) return log('get signature error!');
     const {timestamp, nonceStr, signature} = data
@@ -18,19 +19,5 @@ export default ({appid, signatureUrl, debug = false, jsApiList}) => {
       signature,// 必填，签名，见[附录1](#11974)
       jsApiList  // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
     });
-  })
-}
-
-const getRequest = (url, params) => {
-  return new Promise((resolve, reject) => {
-    var xmlHttp = new XMLHttpRequest();
-    xmlHttp.onreadystatechange = function() {
-        if (xmlHttp.readyState == 4 && xmlHttp.status == 200 ){
-          resolve(JSON.parse(xmlHttp.responseText))
-        }
-    }
-
-    xmlHttp.open("GET", url, true); // true for asynchronous
-    xmlHttp.send(null);
   })
 }
